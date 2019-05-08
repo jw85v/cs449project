@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/androidAgentTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="88dp"
+        android:text="Errand Agent"
+        android:textAlignment="center"
+        android:textSize="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerWishList"
+        android:layout_width="303dp"
+        android:layout_height="191dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="268dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/wishListTxt"
+        android:layout_width="87dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="224dp"
+        android:text="Wish List"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/wishListBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="264dp"
+        android:layout_marginTop="208dp"
+        android:text="Add Item"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

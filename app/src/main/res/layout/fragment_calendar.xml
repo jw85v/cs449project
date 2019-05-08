@@ -1,0 +1,41 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:id="@+id/relativeLayout5"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/androidCalendarTitle"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="68dp"-->
+        <!--android:text="Calendar"-->
+        <!--android:textAlignment="center"-->
+        <!--android:textSize="40dp"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--<CalendarView-->
+        <!--android:id="@+id/calendarView"-->
+        <!--android:layout_width="322dp"-->
+        <!--android:layout_height="378dp"-->
+        <!--android:layout_marginTop="132dp"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.494"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--</android.support.constraint.ConstraintLayout>-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.tyczj.extendedcalendarview.ExtendedCalendarView
+        android:id="@+id/calendar"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"/>
+
+</RelativeLayout>
