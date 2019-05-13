@@ -5,47 +5,27 @@
     android:id="@+id/relativeLayout7"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.LoginActivity">
+    tools:context=".Activities.LoginActivity"
+    android:background="@color/bootstrap_brand_secondary_border">
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="431dp"
-        android:layout_height="347dp"
-        android:layout_marginStart="5dp"
+        android:layout_width="365dp"
+        android:layout_height="290dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="64dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/errandagentnoline3" />
 
-    <TextView
-        android:id="@+id/signInPrompt"
-        android:layout_width="wrap_content"
-        android:layout_height="22dp"
-        android:layout_marginTop="352dp"
-        android:text="Please sign in or continue as Guest"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/createAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="28dp"
-        android:layout_marginTop="380dp"
-        android:clickable="true"
-        android:text="Don't have an account? Sign up here"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/name"
-        android:layout_width="282dp"
+        android:layout_width="269dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="210dp"
         android:hint="Username"
         android:inputType="text"
+        android:nextFocusForward="@id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,42 +33,88 @@
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="280dp"
+        android:layout_width="269dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="284dp"
+        android:layout_marginTop="264dp"
         android:hint="Password"
         android:inputType="textPassword"
+        android:nextFocusForward="@id/loginBtn"
+        android:nextFocusDown="@id/loginBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/loginBtn"
         android:layout_width="105dp"
         android:layout_height="45dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="431dp"
-        android:background="@color/design_default_color_primary_dark"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="464dp"
         android:text="Login"
         android:textColor="@android:color/background_light"
+        android:nextFocusForward="@id/guestBtn"
+        app:bootstrapBrand="primary"
+        app:bootstrapSize="lg"
+        app:buttonMode="regular"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:roundedCorners="true"
+        app:showOutline="false" />
 
-    <Button
+    <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/guestBtn"
         android:layout_width="105dp"
         android:layout_height="45dp"
-        android:layout_marginTop="431dp"
-        android:layout_marginEnd="96dp"
-        android:background="@android:color/holo_red_light"
-        android:fadingEdge="horizontal|vertical"
-        android:text="GUEST"
-        android:textAllCaps="false"
-        android:textColor="@android:color/background_light"
+        android:layout_marginTop="464dp"
+        android:layout_marginEnd="92dp"
+        android:text="Guest"
+        android:nextFocusForward="@+id/name"
+        app:bootstrapBrand="danger"
+        app:bootstrapSize="lg"
+        app:buttonMode="regular"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:roundedCorners="true"
+        app:showOutline="false" />
+
+    <TextView
+        android:id="@+id/signInPrompt"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginTop="384dp"
+        android:text="Please sign in or continue as Guest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/createAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginTop="416dp"
+        android:clickable="true"
+        android:text="Don't have an account? Sign up here"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!--<Button-->
+    <!--android:id="@+id/guestBtn"-->
+    <!--android:layout_width="105dp"-->
+    <!--android:layout_height="45dp"-->
+    <!--android:layout_marginTop="431dp"-->
+    <!--android:layout_marginEnd="96dp"-->
+    <!--android:background="@android:color/holo_red_light"-->
+    <!--android:fadingEdge="horizontal|vertical"-->
+    <!--android:text="GUEST"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="@android:color/background_light"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent" />-->
 
 </android.support.constraint.ConstraintLayout>

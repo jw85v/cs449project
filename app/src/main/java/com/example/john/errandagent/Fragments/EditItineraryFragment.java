@@ -1,9 +1,12 @@
 package com.example.john.errandagent.Fragments;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,8 +17,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
+import com.example.john.errandagent.Activities.MainActivity;
 import com.example.john.errandagent.Adapters.ItineraryEditAdapter;
 import com.example.john.errandagent.DataPersistence.SaveUserInformation;
 import com.example.john.errandagent.Models.ItineraryCollection;
@@ -29,6 +36,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -39,7 +47,7 @@ public class EditItineraryFragment extends Fragment implements ItineraryEditAdap
     private String fileName[];
     private String user = "";
     private EditText location;
-    private EditText itineraryName;
+    private TextView itineraryName;
     private ItineraryDTO itinerary;
     private ItineraryCollection itineraryCollection;
     private EditText start;
@@ -49,6 +57,7 @@ public class EditItineraryFragment extends Fragment implements ItineraryEditAdap
     private String shopFileName = "";
     private EditText date;
     private int clickIndex;
+    private DatePickerDialog.OnDateSetListener dataListiner;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -69,9 +78,35 @@ public class EditItineraryFragment extends Fragment implements ItineraryEditAdap
         user = getUserInformation.getUser(getContext());
 
         itineraryName = getView().findViewById(R.id.ItineraryName);
+        itineraryName.requestFocus();
+
         itinerary = new ItineraryDTO();
 
         date = getView().findViewById(R.id.itineraryDate);
+
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(getContext(), AlertDialog.THEME_DEVICE_DEFAULT_DARK
+                        , dataListiner, year, month, day);
+                //dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+
+            }
+        });
+
+        dataListiner = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month = month + 1;
+                date.setText(month + "/" + dayOfMonth + "/" + year);
+            }
+        };
 
         start = getView().findViewById(R.id.startTime);
         end = getView().findViewById(R.id.endTime);
@@ -87,7 +122,7 @@ public class EditItineraryFragment extends Fragment implements ItineraryEditAdap
         }
 
 
-        Button addListBtn = getView().findViewById(R.id.editListItineraryBtn);
+        BootstrapButton addListBtn = getView().findViewById(R.id.editListItineraryBtn);
         args = new Bundle();
         args.putString("listKey",files);
         final ShoppingListModalFragment fragment = new ShoppingListModalFragment();
@@ -100,7 +135,7 @@ public class EditItineraryFragment extends Fragment implements ItineraryEditAdap
             }
         });
 
-        Button empty = getView().findViewById(R.id.emptyItineraryBtn);
+        BootstrapButton empty = getView().findViewById(R.id.emptyItineraryBtn);
         empty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,7 +160,7 @@ public class EditItineraryFragment extends Fragment implements ItineraryEditAdap
             }
         });
 
-        Button save = getView().findViewById(R.id.saveItineraryBtn);
+        BootstrapButton save = getView().findViewById(R.id.saveItineraryBtn);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,7 +178,7 @@ public class EditItineraryFragment extends Fragment implements ItineraryEditAdap
             }
         });
 
-        Button addStop = getView().findViewById(R.id.addStopBtn);
+        BootstrapButton addStop = getView().findViewById(R.id.addStopBtn);
         addStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -165,7 +200,7 @@ public class EditItineraryFragment extends Fragment implements ItineraryEditAdap
             }
         });
 
-        Button delItem = getView().findViewById(R.id.deleteItineraryItem);
+        BootstrapButton delItem = getView().findViewById(R.id.deleteItineraryItem);
         delItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -187,7 +222,7 @@ public class EditItineraryFragment extends Fragment implements ItineraryEditAdap
             }
         });
 
-        Button openList = getView().findViewById(R.id.openShoppingListBtn);
+        BootstrapButton openList = getView().findViewById(R.id.openShoppingListBtn);
         openList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -268,7 +303,6 @@ public class EditItineraryFragment extends Fragment implements ItineraryEditAdap
 
 
     private void buildItinerary(@NonNull List<List<ShoppingListDTO>> shoppinglistCollection) {
-        //itineraryCollection.itineraryList = new ArrayList<>();
 
         for (List<ShoppingListDTO> s : shoppinglistCollection) {
 
@@ -300,8 +334,6 @@ public class EditItineraryFragment extends Fragment implements ItineraryEditAdap
         RecyclerView recyclerView = getView().findViewById(R.id.itineraryItemRecycler);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-        //yourList = new ArrayList<Blog>(new LinkedHashSet<Blog>(yourList));
-        //itineraryCollection.itineraryList = new ArrayList<ItineraryDTO>(new LinkedHashSet<ItineraryDTO>(itineraryCollection.itineraryList));
         adapter = new ItineraryEditAdapter(getContext(), itineraryCollection, this);
         recyclerView.setAdapter(adapter);
     }

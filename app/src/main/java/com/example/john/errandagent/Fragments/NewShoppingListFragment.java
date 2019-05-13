@@ -1,9 +1,7 @@
 package com.example.john.errandagent.Fragments;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,20 +12,17 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.example.john.errandagent.DataPersistence.SaveUserInformation;
 import com.example.john.errandagent.Models.ShoppingListCollection;
 import com.example.john.errandagent.Models.ShoppingListDTO;
 import com.example.john.errandagent.Adapters.ShoppingListAdapter;
 import com.example.john.errandagent.Queries.GetUserInformation;
 import com.example.john.errandagent.R;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -60,7 +55,7 @@ public class NewShoppingListFragment extends Fragment implements ShoppingListAda
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        listName = getView().findViewById(R.id.listName);
+        listName = getView().findViewById(R.id.listShoppingNameFrag);
         item = getView().findViewById(R.id.item);
         price = getView().findViewById(R.id.price);
         store = getView().findViewById(R.id.store);
@@ -72,21 +67,18 @@ public class NewShoppingListFragment extends Fragment implements ShoppingListAda
         taxTotal.append(" $0.00");
         grandTotal.append(" $0.00");
         listIndex = 999999;
-
-
+        listName.requestFocus();
 
         if (!filename.equals("")) {
             loadFile();
         }
-
 
         GetUserInformation getUserInformation = new GetUserInformation();
         user = getUserInformation.getUser(getContext());
 
         setAdapter();
 
-
-        Button newItemBtn = getView().findViewById(R.id.newItemBtn);
+        BootstrapButton newItemBtn = getView().findViewById(R.id.newItemBtn);
         newItemBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,7 +106,7 @@ public class NewShoppingListFragment extends Fragment implements ShoppingListAda
             }
         });
 
-        Button editItemBtn = getView().findViewById(R.id.editItemBtn);
+        BootstrapButton editItemBtn = getView().findViewById(R.id.editItemBtn);
         editItemBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,7 +131,7 @@ public class NewShoppingListFragment extends Fragment implements ShoppingListAda
             }
         });
 
-        Button clearFieldsBtn = getView().findViewById(R.id.clearFieldsBtn);
+        BootstrapButton clearFieldsBtn = getView().findViewById(R.id.clearFieldsBtn);
         clearFieldsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,7 +139,7 @@ public class NewShoppingListFragment extends Fragment implements ShoppingListAda
             }
         });
 
-        Button deleteItemBtn = getView().findViewById(R.id.deleteItemBtn);
+        BootstrapButton deleteItemBtn = getView().findViewById(R.id.deleteItemBtn);
         deleteItemBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -159,7 +151,7 @@ public class NewShoppingListFragment extends Fragment implements ShoppingListAda
             }
         });
 
-        Button saveListBtn = getView().findViewById(R.id.saveListBtn);
+        BootstrapButton saveListBtn = getView().findViewById(R.id.saveListBtn);
         saveListBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -187,7 +179,7 @@ public class NewShoppingListFragment extends Fragment implements ShoppingListAda
             }
         });
 
-        Button deleteBtn = getView().findViewById(R.id.deleteBtn);
+        BootstrapButton deleteBtn = getView().findViewById(R.id.deleteBtn);
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

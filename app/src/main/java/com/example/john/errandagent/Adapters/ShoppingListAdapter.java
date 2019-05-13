@@ -37,7 +37,7 @@ public class ShoppingListAdapter extends RecyclerView.Adapter<ShoppingListAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         ShoppingListDTO shoppingList = mData.get(position);
-        holder.myTextView.setText(" ✓ "+shoppingList.GetItem()+"  x" +shoppingList.GetQty() + "  $" + shoppingList.GetPrice() + "  @" + shoppingList.GetStore());
+        holder.myTextView.setText(" ✓ "+shoppingList.GetItem()+"  qty: " +shoppingList.GetQty() + "  $" + shoppingList.GetPrice() + "  " + shoppingList.GetStore());
 
     }
 

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.example.john.errandagent.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -25,8 +26,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final Button login =  findViewById(R.id.loginBtn);
-        Button guest = findViewById(R.id.guestBtn);
+
+        final BootstrapButton login =  findViewById(R.id.loginBtn);
+        BootstrapButton guest = findViewById(R.id.guestBtn);
         TextView createAccount = findViewById(R.id.createAccount);
         name = findViewById(R.id.name);
         password = findViewById(R.id.password);
@@ -91,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
             editor.putString("CurrentUser", name.getText().toString());
             editor.commit();
             Intent intent = new Intent(this, MainActivity.class);
-            BuildAlert("Login was successful!", intent);
+            LaunchPage(intent);
         }
         else{
             Intent intent = new Intent(getBaseContext(), LoginActivity.class);

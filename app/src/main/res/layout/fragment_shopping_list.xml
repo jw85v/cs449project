@@ -4,28 +4,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bootstrap_brand_secondary_border">
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="115dp"
-        android:layout_height="103dp"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="4dp"
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/openBtn"
+        android:layout_width="140dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="138dp"
+        android:background="@android:color/holo_blue_dark"
+        android:elevation="16dp"
+        android:stateListAnimator="@null"
+        android:text="Open"
+        android:nextFocusForward="@id/newListBtn"
+        app:bootstrapBrand="primary"
+        app:bootstrapSize="lg"
+        app:buttonMode="regular"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/checksmall" />
+        app:roundedCorners="true"
+        app:showOutline="false" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/newListBtn"
+        android:layout_width="140dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="190dp"
+        android:background="@android:color/holo_blue_dark"
+        android:elevation="16dp"
+        android:fontFamily="sans-serif"
+        android:nextFocusForward="@id/deleteListBtn"
+        android:stateListAnimator="@null"
+        android:text="New"
+        app:bootstrapBrand="primary"
+        app:bootstrapSize="lg"
+        app:buttonMode="regular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:roundedCorners="true"
+        app:showOutline="false" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/deleteListBtn"
+        android:layout_width="140dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="245dp"
+        android:background="@android:color/holo_blue_dark"
+        android:elevation="16dp"
+        android:nextFocusForward="@id/shoppingListName"
+        android:stateListAnimator="@null"
+        android:text="Delete"
+        android:textSize="12dp"
+        app:bootstrapBrand="danger"
+        app:bootstrapSize="lg"
+        app:buttonMode="regular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:roundedCorners="true"
+        app:showOutline="false" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="55dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="387dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_add_shopping_cart_black_24dp" />
 
     <TextView
         android:id="@+id/totalTxtView"
-        android:layout_width="147dp"
-        android:layout_height="29dp"
+        android:layout_width="233dp"
+        android:layout_height="37dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="238dp"
-        android:layout_marginTop="314dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="461dp"
         android:nextFocusDown="@id/itineraryLocation"
         android:text="Total:"
-        android:textSize="20sp"
+        android:textSize="23sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,62 +94,85 @@
         android:layout_width="139dp"
         android:layout_height="39dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="236dp"
-        android:layout_marginTop="260dp"
-        android:text="# Stops:"
-        android:textSize="18sp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="389dp"
+        android:text="Stops:"
+        android:textSize="23sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="70dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="372dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_directions" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="56dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="452dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_attach_money_black_24dp" />
 
     <TextView
         android:id="@+id/numItems"
         android:layout_width="125dp"
         android:layout_height="38dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="236dp"
-        android:layout_marginTop="288dp"
-        android:text="# Items:"
-        android:textSize="18sp"
+        android:layout_marginStart="276dp"
+        android:layout_marginTop="389dp"
+        android:text="Items:"
+        android:textSize="23sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/deleteListBtn"
-        android:layout_width="140dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="212dp"
-        android:layout_marginEnd="35dp"
-        android:background="@android:color/holo_blue_dark"
-        android:stateListAnimator="@null"
-        android:text="Delete"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!--<Button-->
+    <!--android:id="@+id/deleteListBtn"-->
+    <!--android:layout_width="140dp"-->
+    <!--android:layout_height="44dp"-->
+    <!--android:layout_marginTop="212dp"-->
+    <!--android:layout_marginEnd="35dp"-->
+    <!--android:background="@android:color/holo_blue_dark"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:text="Delete"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent" />-->
 
-    <Button
-        android:id="@+id/openBtn"
-        android:layout_width="140dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="236dp"
-        android:layout_marginTop="128dp"
-        android:background="@android:color/holo_blue_dark"
-        android:stateListAnimator="@null"
-        android:text="Open List"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!--<Button-->
+    <!--android:id="@+id/openBtn"-->
+    <!--android:layout_width="140dp"-->
+    <!--android:layout_height="44dp"-->
+    <!--android:layout_marginStart="236dp"-->
+    <!--android:layout_marginTop="128dp"-->
+    <!--android:background="@android:color/holo_blue_dark"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:text="Open List"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent" />-->
 
 
     <TextView
         android:id="@+id/listName"
+        android:focusable="true"
+        android:focusedByDefault="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif-light"
         android:nextFocusLeft="@id/itineraryLocation"
         android:nextFocusRight="@id/itineraryLocation"
         android:nextFocusForward="@id/itineraryLocation"
         android:text="My Lists "
         android:textAlignment="center"
-        android:textSize="34.5sp"
+        android:textSize="40.5sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:nextFocusDown="@id/itineraryLocation"
@@ -101,23 +184,23 @@
     <!--tools:layout_editor_absoluteX="62dp"-->
     <!--tools:layout_editor_absoluteY="272dp" />-->
 
-    <Button
-        android:id="@+id/newListBtn"
-        android:layout_width="140dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="236dp"
-        android:layout_marginTop="172dp"
-        android:background="@android:color/holo_blue_dark"
-        android:imeOptions="actionNext"
-        android:nextFocusLeft="@id/editItemBtn"
-        android:nextFocusRight="@id/editItemBtn"
-        android:nextFocusUp="@id/editItemBtn"
-        android:nextFocusDown="@id/editItemBtn"
-        android:nextFocusForward="@id/editItemBtn"
-        android:stateListAnimator="@null"
-        android:text="New List"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!--<Button-->
+    <!--android:id="@+id/newListBtn"-->
+    <!--android:layout_width="140dp"-->
+    <!--android:layout_height="44dp"-->
+    <!--android:layout_marginStart="236dp"-->
+    <!--android:layout_marginTop="172dp"-->
+    <!--android:background="@android:color/holo_blue_dark"-->
+    <!--android:imeOptions="actionNext"-->
+    <!--android:nextFocusLeft="@id/editItemBtn"-->
+    <!--android:nextFocusRight="@id/editItemBtn"-->
+    <!--android:nextFocusUp="@id/editItemBtn"-->
+    <!--android:nextFocusDown="@id/editItemBtn"-->
+    <!--android:nextFocusForward="@id/editItemBtn"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:text="New List"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent" />-->
 
     <EditText
         android:id="@+id/shoppingListName"
@@ -127,25 +210,32 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="79dp"
         android:editable="false"
+        android:fontFamily="sans-serif-light"
         android:hint="List Name"
         android:imeOptions="actionNext"
         android:inputType="none"
-        android:nextFocusLeft="@id/itineraryLocation"
-        android:nextFocusRight="@id/itineraryLocation"
-        android:nextFocusUp="@id/itineraryLocation"
-        android:nextFocusDown="@id/itineraryLocation"
-        android:nextFocusForward="@id/itineraryLocation"
+        android:nextFocusForward="@id/openBtn"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="52dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/checkbox_on_background" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/shoppingListRecycler"
         android:layout_width="191dp"
-        android:layout_height="334dp"
+        android:layout_height="229dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="128dp"
-        android:background="@color/colorPrimary"
+        android:layout_marginTop="140dp"
+        android:background="@color/bootstrap_brand_secondary_border"
         android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -156,6 +246,7 @@
         android:id="@+id/fragment_shopping_container"
         android:layout_width="414dp"
         android:layout_height="742dp"
+        android:elevation="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 

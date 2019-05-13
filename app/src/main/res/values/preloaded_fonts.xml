@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/</item>
+        <item>@font/alegreya_sc</item>
+        <item>@font/artifika</item>
+        <item>@font/audiowide</item>
+        <item>@font/average</item>
+        <item>@font/bangers</item>
+        <item>@font/baumans</item>
+        <item>@font/cabin_sketch</item>
+        <item>@font/yellowtail</item>
+    </array>
+</resources>

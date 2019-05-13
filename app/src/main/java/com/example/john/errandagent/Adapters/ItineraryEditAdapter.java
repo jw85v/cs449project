@@ -69,7 +69,7 @@ public class ItineraryEditAdapter extends RecyclerView.Adapter<ItineraryEditAdap
     // inflates the row layout from xml when needed
     @Override
     public ItineraryEditAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.recyclerview_row, parent, false);
+        View view = mInflater.inflate(R.layout.recyclerview_row_small, parent, false);
         return new ItineraryEditAdapter.ViewHolder(view, mClickListener);
     }
 
@@ -78,10 +78,10 @@ public class ItineraryEditAdapter extends RecyclerView.Adapter<ItineraryEditAdap
     public void onBindViewHolder(ItineraryEditAdapter.ViewHolder holder, int position) {
         ItineraryDTO shoppingList = mData.itineraryList.get(position);
         if(!shoppingList.getStartTime().equals("???") || !shoppingList.getEndTime().equals("???")) {
-            holder.myTextView.setText(" - "+shoppingList.getStartTime() + "-" + shoppingList.getEndTime() + " Location: " + shoppingList.getShoppingList().getShoppingList().get(0).GetStore());
+            holder.myTextView.setText(" ✓ " +  shoppingList.getShoppingList().getShoppingList().get(0).GetStore() + " " + shoppingList.getStartTime() + " to " + shoppingList.getEndTime());
         }
         else
-            holder.myTextView.setText(" - Set a time for this stop! " + " Location: " + shoppingList.getShoppingList().getShoppingList().get(0).GetStore());
+            holder.myTextView.setText(" ✓ " + shoppingList.getShoppingList().getShoppingList().get(0).GetStore() + " (No time set for this stop) ");
 
     }
     // return c1.getName().compare(c2.getName());
@@ -100,7 +100,7 @@ public class ItineraryEditAdapter extends RecyclerView.Adapter<ItineraryEditAdap
 
         ViewHolder(View itemView, ItineraryEditAdapter.ItemClickListener itemClickListener) {
             super(itemView);
-            myTextView = itemView.findViewById(R.id.shoppingItemView);
+            myTextView = itemView.findViewById(R.id.itineraryItemView);
             this.itemClickListener = itemClickListener;
             itemView.setOnClickListener(this);
         }

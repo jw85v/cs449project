@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.example.john.errandagent.DataPersistence.SaveUserInformation;
 import com.example.john.errandagent.Queries.GetUserInformation;
 import com.example.john.errandagent.R;
@@ -30,7 +31,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
 
 
-        Button cancelBtn = findViewById(R.id.cancelBtn);
+        BootstrapButton cancelBtn = findViewById(R.id.cancelBtn);
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,7 +40,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             }
         });
 
-        Button createBtn = findViewById(R.id.createAccountBtn);
+        BootstrapButton createBtn = findViewById(R.id.createAccountBtn);
         createBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

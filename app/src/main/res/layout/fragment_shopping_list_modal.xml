@@ -4,22 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@color/bootstrap_gray_light">
 
     <Button
         android:id="@+id/closeModalBtn"
         android:layout_width="wrap_content"
         android:layout_height="43dp"
-        android:layout_marginTop="332dp"
+        android:layout_marginTop="335dp"
         android:text="Close"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/shoppingListRecycler"
-        android:layout_width="256dp"
+        android:layout_width="240dp"
         android:layout_height="332dp"
-        android:background="@android:color/holo_blue_dark"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="3dp"
+        android:background="@android:color/background_light"
         android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

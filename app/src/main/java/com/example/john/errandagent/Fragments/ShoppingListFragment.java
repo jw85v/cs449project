@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.example.john.errandagent.Models.ShoppingListDTO;
 import com.example.john.errandagent.Queries.GetUserInformation;
 import com.example.john.errandagent.R;
@@ -52,6 +53,8 @@ public class ShoppingListFragment extends Fragment implements ShoppingListItemAd
         items = getView().findViewById(R.id.numItems);
         total = getView().findViewById(R.id.totalTxtView);
 
+        listName.requestFocus();
+
         GetUserInformation getUserInformation = new GetUserInformation();
         user = getUserInformation.getUser(getContext());
 
@@ -62,7 +65,7 @@ public class ShoppingListFragment extends Fragment implements ShoppingListItemAd
         final NewShoppingListFragment fragment = new NewShoppingListFragment();
         fragment.setArguments(args);
 
-        Button newListBtn = getView().findViewById(R.id.newListBtn);
+        BootstrapButton newListBtn = getView().findViewById(R.id.newListBtn);
         newListBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +74,7 @@ public class ShoppingListFragment extends Fragment implements ShoppingListItemAd
             }
         });
 
-        Button openListBtn = getView().findViewById(R.id.openBtn);
+        BootstrapButton openListBtn = getView().findViewById(R.id.openBtn);
         openListBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,7 +82,7 @@ public class ShoppingListFragment extends Fragment implements ShoppingListItemAd
             }
         });
 
-        Button deleteListBtn = getView().findViewById(R.id.deleteListBtn);
+        BootstrapButton deleteListBtn = getView().findViewById(R.id.deleteListBtn);
         deleteListBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,8 +103,8 @@ public class ShoppingListFragment extends Fragment implements ShoppingListItemAd
                                 editor.commit();
                                 setAdapter();
                                 listName.setText("");
-                                stops.setText("# Stops:");
-                                items.setText("# Items:");
+                                stops.setText("Stops:");
+                                items.setText("Items:");
                                 total.setText("Total:");
 
                             }
@@ -130,8 +133,8 @@ public class ShoppingListFragment extends Fragment implements ShoppingListItemAd
 
         filename = keys.get(position).toString();
         listName.setText(listInfo[0]);
-        stops.setText("# Stops: " + listInfo[1]);
-        items.setText("# Items: " + listInfo[2]);
+        stops.setText("Stops: " + listInfo[1]);
+        items.setText("Items: " + listInfo[2]);
         total.setText("Total: $" + listInfo[3]);
         args.putString("listKey", keys.get(position).toString());
 

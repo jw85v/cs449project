@@ -4,93 +4,136 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/relativeLayout3"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bootstrap_brand_secondary_border">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="115dp"
-        android:layout_height="103dp"
-        android:layout_marginStart="240dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/checksmall" />
+    <!--<ImageView-->
+    <!--android:id="@+id/imageView2"-->
+    <!--android:layout_width="115dp"-->
+    <!--android:layout_height="103dp"-->
+    <!--android:layout_marginStart="240dp"-->
+    <!--android:layout_marginTop="4dp"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent"-->
+    <!--app:srcCompat="@drawable/checksmall" />-->
 
-    <Button
-        android:id="@+id/deleteItineraryBtn"
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/openItineraryBtn"
+        android:nextFocusForward="@id/newItineraryBtn"
         android:layout_width="140dp"
         android:layout_height="44dp"
         android:layout_marginStart="240dp"
-        android:layout_marginTop="216dp"
+        android:layout_marginTop="138dp"
+        android:background="@android:color/holo_blue_dark"
+        android:elevation="16dp"
+        android:stateListAnimator="@null"
+        android:text="Open"
+        app:bootstrapBrand="primary"
+        app:bootstrapSize="lg"
+        app:buttonMode="regular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:roundedCorners="true"
+        app:showOutline="false" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/newItineraryBtn"
+        android:layout_width="140dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="190dp"
+        android:background="@android:color/holo_blue_dark"
+        android:elevation="16dp"
+        android:fontFamily="sans-serif"
+        android:imeOptions="actionNext"
+        android:nextFocusForward="@id/deleteItineraryBtn"
+        android:stateListAnimator="@null"
+        android:text="New"
+        app:bootstrapBrand="primary"
+        app:bootstrapSize="lg"
+        app:buttonMode="regular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:roundedCorners="true"
+        app:showOutline="false" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/deleteItineraryBtn"
+        android:elevation="16dp"
+        android:layout_width="140dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="245dp"
         android:background="@android:color/holo_blue_dark"
         android:stateListAnimator="@null"
         android:text="Delete"
+        android:textSize="12dp"
+        android:nextFocusForward="@+id/itineraryListName"
+        app:bootstrapBrand="danger"
+        app:bootstrapSize="lg"
+        app:buttonMode="regular"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:roundedCorners="true"
+        app:showOutline="false" />
 
-    <Button
-        android:id="@+id/openItineraryBtn"
-        android:layout_width="140dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="240dp"
-        android:layout_marginTop="128dp"
-        android:background="@android:color/holo_blue_dark"
-        android:stateListAnimator="@null"
-        android:text="Open Itinerary"
+    <FrameLayout
+        android:id="@+id/fragment_itinerary_container"
+        android:layout_width="414dp"
+        android:layout_height="742dp"
+        android:elevation="100dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
 
     <TextView
         android:id="@+id/itineraryName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:elevation="16dp"
+        android:fontFamily="sans-serif-light"
         android:nextFocusLeft="@id/itineraryLocation"
         android:nextFocusRight="@id/itineraryLocation"
         android:nextFocusForward="@id/itineraryLocation"
         android:text="My Itinerarys"
         android:textAlignment="center"
-        android:textSize="34.5sp"
+        android:textSize="40.5sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:nextFocusDown="@id/itineraryLocation"
         tools:nextFocusLeft="@id/itineraryLocation" />
 
-    <Button
-        android:id="@+id/newItineraryBtn"
-        android:layout_width="140dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="240dp"
-        android:layout_marginTop="172dp"
-        android:background="@android:color/holo_blue_dark"
-        android:imeOptions="actionNext"
-        android:nextFocusLeft="@id/editItemBtn"
-        android:nextFocusRight="@id/editItemBtn"
-        android:nextFocusUp="@id/editItemBtn"
-        android:nextFocusDown="@id/editItemBtn"
-        android:nextFocusForward="@id/editItemBtn"
-        android:stateListAnimator="@null"
-        android:text="New Itinerary"
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="52dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="252dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/checkbox_on_background" />
 
     <EditText
+        android:focusable="true"
+        android:focusedByDefault="true"
         android:id="@+id/itineraryListName"
-        android:layout_width="191dp"
+        style="@android:style/Widget.AutoCompleteTextView"
+        android:layout_width="198dp"
         android:layout_height="44dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="28dp"
         android:layout_marginTop="79dp"
         android:editable="false"
+        android:fontFamily="sans-serif-light"
         android:hint="Itinerary Name"
         android:imeOptions="actionNext"
-        android:inputType="text"
-        android:nextFocusLeft="@id/itineraryLocation"
-        android:nextFocusRight="@id/itineraryLocation"
-        android:nextFocusUp="@id/itineraryLocation"
-        android:nextFocusDown="@id/itineraryLocation"
-        android:nextFocusForward="@id/itineraryLocation"
+        android:inputType="none"
+        android:nextFocusForward="@id/openItineraryBtn"
+        android:singleLine="true"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -100,20 +143,12 @@
         android:layout_width="191dp"
         android:layout_height="334dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="128dp"
-        android:background="@color/colorPrimary"
+        android:layout_marginTop="140dp"
+        android:background="@color/bootstrap_brand_secondary_border"
         android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
     </android.support.v7.widget.RecyclerView>
 
-    <FrameLayout
-        android:id="@+id/fragment_itinerary_container"
-        android:layout_width="414dp"
-        android:layout_height="742dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </FrameLayout>
 </android.support.constraint.ConstraintLayout>

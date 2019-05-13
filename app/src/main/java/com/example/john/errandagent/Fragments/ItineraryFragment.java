@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.example.john.errandagent.Adapters.ItineraryListAdapter;
 import com.example.john.errandagent.Adapters.ShoppingListItemAdapter;
 import com.example.john.errandagent.Queries.GetUserInformation;
@@ -44,13 +45,14 @@ public class ItineraryFragment extends Fragment implements ItineraryListAdapter.
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         args = new Bundle();
         listName = getView().findViewById(R.id.itineraryListName);
+        listName.requestFocus();
 
 
         GetUserInformation getUserInformation = new GetUserInformation();
         user = getUserInformation.getUser(getContext());
         setAdapter();
 
-        Button deleteBtn = getView().findViewById(R.id.deleteItineraryBtn);
+        BootstrapButton deleteBtn = getView().findViewById(R.id.deleteItineraryBtn);
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +79,7 @@ public class ItineraryFragment extends Fragment implements ItineraryListAdapter.
             }
         });
 
-        Button openOldBtn = getView().findViewById(R.id.openItineraryBtn);
+        BootstrapButton openOldBtn = getView().findViewById(R.id.openItineraryBtn);
         openOldBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,7 +90,7 @@ public class ItineraryFragment extends Fragment implements ItineraryListAdapter.
             }
         });
 
-        Button openItineraryBtn = getView().findViewById(R.id.newItineraryBtn);
+        BootstrapButton openItineraryBtn = getView().findViewById(R.id.newItineraryBtn);
         openItineraryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
